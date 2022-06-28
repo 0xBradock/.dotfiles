@@ -61,7 +61,7 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'eslint', 'tsserver', 'html', 'emmet_ls', 'tailwindcss', 'rust_analyzer', 'sumneko_lua' }
+local servers = { 'eslint', 'tsserver', 'html', 'emmet_ls', 'gopls', 'tailwindcss', 'rust_analyzer', 'sumneko_lua' }
 
 for _, lsp in pairs(servers) do
   lsp_config[lsp].setup{

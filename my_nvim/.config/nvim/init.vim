@@ -37,6 +37,7 @@ Plug 'nvim-telescope/telescope-media-files.nvim'
 
 " Colorscheme
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 
 " Lualine
 Plug 'nvim-lualine/lualine.nvim'
@@ -45,8 +46,12 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Comments
+Plug 'tpope/vim-commentary'
+
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 
 " Completion
 Plug 'hrsh7th/nvim-cmp'       " Core plugin
@@ -72,3 +77,13 @@ vnoremap K :m '<-2<CR>gv=gv
 " Moving current line
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
+" Auto matching
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap [ []<left>
+inoremap [] []
+inoremap ( ()<left>
+inoremap () ()
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
