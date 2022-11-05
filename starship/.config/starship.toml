@@ -17,3 +17,11 @@ disabled = true
 [python]
 # Only use the `python3` binary to get the version.
 python_binary = "python3"
+
+[aws]
+force_display = true
+[aws.profile_aliases]
+datalake-deploy = "eLib::datalake-deploy"
+datalake-dev = "eLib::datalake-dev"
+datalake-prod = "eLib::datalake-prod"
+datalake-test = "eLib::datalake-test"
