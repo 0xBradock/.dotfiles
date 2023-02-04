@@ -28,3 +28,7 @@ datalake-test = "eLib::datalake-test"
 eventbridge-dev = "eLib::eventbridge-dev"
 eventbridge-prod = "eLib::eventbridge-prod"
 eventbridge-test = "eLib::eventbridge-test"
+
+[kubernetes]
+disabled = false
+style = "bold #3970e4"
