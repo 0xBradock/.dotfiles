@@ -1,1 +1,0 @@
-{"errorMessage": "'path'", "errorType": "KeyError", "requestId": "b8a79f90-1e7b-44c6-a1b5-070f44ea9ac9", "stackTrace": ["  File \"/var/task/another.py\", line 8, in handler\n    \"body\": f\"From ANOTHER Python on {event['path']}\"\n"]}
