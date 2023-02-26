@@ -1,9 +1,18 @@
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>gf', builtin.git_files, {}) -- find git files
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+local wk = require("which-key")
+
+wk.register({
+  ["<leader>"] = {
+    f = {
+      name = "+file",
+      f = { builtin.find_files, "Find File - (.gitignore)" },
+      g = { "<cmd>Telescope find_files no_ignore=true hidden=true<cr>", "Find File + (.gitignore)" },
+      w = { builtin.live_grep, "RipGrep" },
+      s = { builtin.treesitter, "Symbols (treesitter)" },
+      c = { builtin.git_commits, "List commits + diff" },
+    },
+  },
+})
 
 local telescope = require('telescope')
 telescope.setup {
