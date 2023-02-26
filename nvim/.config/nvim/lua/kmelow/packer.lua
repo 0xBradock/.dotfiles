@@ -5,16 +5,16 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use('wbthomason/packer.nvim')
 
-  use( "williamboman/mason.nvim" )
+  use('williamboman/mason.nvim')
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use( "ellisonleao/gruvbox.nvim" )
+  use('ellisonleao/gruvbox.nvim')
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use('theprimeagen/harpoon')
   use('tpope/vim-fugitive')
@@ -24,6 +24,16 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  -- Nerd Tree
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+  }
+  use('nvim-tree/nvim-web-devicons')
+
+  -- Dev
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
@@ -47,6 +57,8 @@ return require('packer').startup(function(use)
 		  -- {'rafamadriz/friendly-snippets'}, -- <- To Remove
 	  }
   }
+
+  use('windwp/nvim-autopairs')
 
   use ( 'folke/which-key.nvim' )
 end)
