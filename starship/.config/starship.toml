@@ -32,3 +32,11 @@ eventbridge-test = "eLib::eventbridge-test"
 [kubernetes]
 disabled = false
 style = "bold #3970e4"
+
+[custom.git-profile]
+command = 'git config --get user.name'
+when = 'git rev-parse --is-inside-work-tree'
+require_repo = true
+description = 'Display git user.name'
+symbol = ""
+format = '[$symbol ($output)]($style) '
