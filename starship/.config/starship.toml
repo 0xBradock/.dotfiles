@@ -2,6 +2,44 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 command_timeout = 5000
 
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$fossil_branch\
+$fossil_metrics\
+$git_branch\
+$custom\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$deno\
+$elixir\
+$golang\
+$lua\
+$nodejs\
+$ocaml\
+$python\
+$rust\
+$aws\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+
 # Inserts a blank line between shell prompts
 add_newline = true
 
@@ -39,4 +77,6 @@ when = 'git rev-parse --is-inside-work-tree'
 require_repo = true
 description = 'Display git user.name'
 symbol = ""
+style = "fg:#b16286 bold"
 format = '[$symbol ($output)]($style) '
+
