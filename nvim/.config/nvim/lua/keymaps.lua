@@ -43,6 +43,11 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- Move windows
+vim.keymap.set('n', '<C-H>', '<C-w><C-H>', { desc = 'Move window to the left' })
+vim.keymap.set('n', '<C-L>', '<C-w><C-L>', { desc = 'Move window to the right' })
+vim.keymap.set('n', '<C-J>', '<C-w><C-J>', { desc = 'Move window to the lower' })
+vim.keymap.set('n', '<C-K>', '<C-w><C-K>', { desc = 'Move window to the upper' })
 
 -- Navigation
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center cursor after page down' })
@@ -54,6 +59,12 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- Goto
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })
 
+-- Quickfix
+vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>', { desc = 'Next on Quickfixlist' })
+vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>', { desc = 'Previous on Quickfixlist' })
+vim.keymap.set('n', '<M-q>', '<cmd>cclose<CR>', { desc = 'Close Quickfixlist' })
+
 -- LSP
 vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, { desc = 'Rename symbol' })
 vim.keymap.set('n', '<space>la', vim.lsp.buf.code_action, { desc = 'Code Action' })
+vim.keymap.set('n', '<space>lq', vim.diagnostic.setqflist, { desc = 'Diagnostics to quickfixlist' })
