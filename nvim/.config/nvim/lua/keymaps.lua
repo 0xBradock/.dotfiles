@@ -49,9 +49,15 @@ vim.keymap.set('n', '<C-L>', '<C-w><C-L>', { desc = 'Move window to the right' }
 vim.keymap.set('n', '<C-J>', '<C-w><C-J>', { desc = 'Move window to the lower' })
 vim.keymap.set('n', '<C-K>', '<C-w><C-K>', { desc = 'Move window to the upper' })
 
--- Navigation
+-- Prime moves: https://www.youtube.com/watch?v=w7i4amO_zaE
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center cursor after page down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Center cursor after page up' })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move highlight down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move highlight up' })
+vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Steady cursor when concat lines' })
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Center cursor when searching' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Center cursor when searching' })
+vim.keymap.set('x', '<space>p', "\"_dP", { desc = 'Void when pasting on top' })
 
 -- Terminal
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -60,8 +66,8 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })
 
 -- Quickfix
-vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>', { desc = 'Next on Quickfixlist' })
-vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>', { desc = 'Previous on Quickfixlist' })
+vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>zz', { desc = 'Next on Quickfixlist' })
+vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>zz', { desc = 'Previous on Quickfixlist' })
 vim.keymap.set('n', '<M-q>', '<cmd>cclose<CR>', { desc = 'Close Quickfixlist' })
 
 -- LSP
