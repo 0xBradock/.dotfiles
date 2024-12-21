@@ -15,6 +15,8 @@ return {
         { '<leader>f', group = 'Telescope' },
         { '<leader>g', group = 'GoTo' },
         { '<leader>l', group = 'Lsp' },
+        { '<leader>o', group = 'Oil' },
+        { '<leader>t', group = 'Test' },
       })
     end
   }

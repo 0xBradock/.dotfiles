@@ -14,7 +14,9 @@ return {
       local tl = require('telescope')
 
       tl.setup {
-        pickers = { find_files = { theme = "ivy" } },
+        pickers = { find_files = {
+          -- theme = "ivy"
+        } },
         extensions = { fzf = {} },
       }
 
@@ -26,6 +28,7 @@ return {
       vim.keymap.set('n', '<space>ff', builtin.find_files, { desc = 'Find files' })
       vim.keymap.set('n', '<space>fd', builtin.diagnostics, { desc = 'List diagnostics' })
       vim.keymap.set('n', '<space><space>', builtin.buffers, { desc = 'List buffers' })
+      vim.keymap.set('n', '<space>fb', builtin.buffers, { desc = 'List buffers' })
       vim.keymap.set('n', '<space>fh', builtin.help_tags, { desc = 'Search help' })
       vim.keymap.set('n', '<space>fk', builtin.keymaps, { desc = 'Search keymaps' })
 
