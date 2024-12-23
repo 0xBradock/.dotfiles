@@ -5,6 +5,8 @@ vim.g.maplocalleader = " "
 -- Conveniences
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set('n', '<space>w', '<cmd>w<CR>', { desc = 'Easy save' })
+vim.keymap.set('i', 'jk', '<ESC><cmd>w<CR>', { desc = 'Easy save' })
+
 
 -- Keymaps
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Remove highlight' })
