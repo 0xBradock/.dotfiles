@@ -1,5 +1,5 @@
 # BEGIN_KITTY_THEME
-# Ayu Mirage
+# Ayu
 include current-theme.conf
 # END_KITTY_THEME
 
@@ -11,6 +11,6 @@ bold_italic_font auto
 font_size 16
 
 dynamic_background_opacity yes
-background_opacity 0.9
+background_opacity 0.5
 
 editor nvim
