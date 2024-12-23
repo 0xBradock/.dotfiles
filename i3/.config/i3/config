@@ -328,10 +328,16 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 # FIX: update dunst
 # Desktop notifications
 # dunst config used ~/.config/dunst/dunstrc
-# set alternative config if needed:
 exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
 exec --no-startup-id sleep 2 && kitty
 
+# FIX: ~/.screenlayout contains `standalone` for only notebook and
+# `office` when connected to my monitor on my office
+# Now I need to search if there is an event that is triggered when a display
+# is connected and at start time check what is connected and exec the script
+#
+# exec --no-startup-id /usr/bin/dunst --config ~/.screenlayout/standalone.sh
+# exec --no-startup-id /usr/bin/dunst --config ~/.screenlayout/office.sh
 
 # set floating (nontiling) for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
