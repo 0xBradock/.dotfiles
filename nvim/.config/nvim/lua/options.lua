@@ -1,5 +1,11 @@
 local opt = vim.opt
 
+-- Clipboard
+-- TODO: I want to be able to paste from clipbaord with `p`.
+-- But, I think there's a config issue with kitty that do not let me.
+-- The option to enable it from nvim is the one below.
+-- opt.clipboard = "unnamedplus"
+
 -- Indentation
 opt.shiftwidth = 4
 opt.number = true
