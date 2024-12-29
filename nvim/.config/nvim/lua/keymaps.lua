@@ -49,6 +49,11 @@ vim.keymap.set('n', '<space>st', function()
   vim.api.nvim_win_set_height(0, 15)
 end, { desc = 'Open terminal on bottom' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+-- inspired from `h: terminal-input`
+vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-w><C-h>', { desc = 'Move to left from terminal' })
+vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w><C-l>', { desc = 'Move to right from terminal' })
+vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w><C-j>', { desc = 'Move down from terminal' })
+vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w><C-k>', { desc = 'Move up from terminal' })
 
 -- Goto
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })
