@@ -331,13 +331,8 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
 exec --no-startup-id sleep 2 && kitty
 
-# FIX: ~/.screenlayout contains `standalone` for only notebook and
-# `office` when connected to my monitor on my office
-# Now I need to search if there is an event that is triggered when a display
-# is connected and at start time check what is connected and exec the script
-#
-# exec --no-startup-id /usr/bin/dunst --config ~/.screenlayout/standalone.sh
-# exec --no-startup-id /usr/bin/dunst --config ~/.screenlayout/office.sh
+# FIX: ~/.screenlayout contains `default` that detects at startup the monitor config. Create trigger to change while running
+exec --no-startup-id sleep 5 && ~/.screenlayout/default.sh
 
 # set floating (nontiling) for apps needing it
 for_window [class="Yad" instance="yad"] floating enable
