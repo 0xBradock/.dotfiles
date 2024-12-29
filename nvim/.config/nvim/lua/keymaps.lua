@@ -27,8 +27,8 @@ vim.keymap.set('n', '<M-l>', '<C-W>L', { desc = 'Move window to the right' })
 vim.keymap.set('n', '<M-j>', '<C-W>J', { desc = 'Move window to the bottom' })
 vim.keymap.set('n', '<M-k>', '<C-W>K', { desc = 'Move window to the top' })
 
-vim.keymap.set('n', '<M-,>', '<cmd>vertical resize -8<CR>', { desc = '' })
-vim.keymap.set('n', '<M-.>', '<cmd>vertical resize +8<CR>', { desc = '' })
+vim.keymap.set('n', '<M-,>', '<cmd>vertical resize -4<CR>', { desc = '' })
+vim.keymap.set('n', '<M-.>', '<cmd>vertical resize +4<CR>', { desc = '' })
 
 -- Prime moves: https://www.youtube.com/watch?v=w7i4amO_zaE
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center cursor after page down' })
@@ -41,6 +41,13 @@ vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Center cursor when searching' })
 vim.keymap.set('x', '<space>p', "\"_dP", { desc = 'Void when pasting on top' })
 
 -- Terminal
+vim.keymap.set('n', '<space>st', function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.cmd.wincmd("A")
+  vim.api.nvim_win_set_height(0, 15)
+end, { desc = 'Open terminal on bottom' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Goto
