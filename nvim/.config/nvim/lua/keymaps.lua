@@ -62,6 +62,18 @@ vim.keymap.set('n', '<M-q>', '<cmd>cclose<CR>', { desc = 'Close Quickfixlist' })
 vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, { desc = 'Rename symbol' })
 vim.keymap.set('n', '<space>la', vim.lsp.buf.code_action, { desc = 'Code Action' })
 vim.keymap.set('n', '<space>lq', vim.diagnostic.setqflist, { desc = 'Diagnostics to quickfixlist' })
+-- This adds a border to the hover window, otherwise is difficult to distinguish from the source code.
+local _border = "rounded"
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = _border,
+  }
+)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = _border,
+  }
+)
 
 -- Test
 vim.keymap.set('n', '<space>tl', '<cmd>require("neotest").run.run(vim.fn.expand("%"))<CR>', { desc = 'Current file' })
