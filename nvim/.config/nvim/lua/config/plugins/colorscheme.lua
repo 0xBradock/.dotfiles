@@ -4,7 +4,7 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      transparent = true,
+      -- transparent = true,
     },
   },
   {
@@ -12,8 +12,17 @@ return {
     priority = 1000,
     config = true,
     opts = {
-      transparent_mode = true,
-    }
+      contrast = "hard",
+      invert_selection = true,
+      transparent_mode = false,
+    },
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      vim.cmd("colorscheme rose-pine")
+    end
   },
   {
     "Shatur/neovim-ayu",
