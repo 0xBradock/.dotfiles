@@ -211,13 +211,12 @@ bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
-set $ws6 "6"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
 
 # TODO: Check if workspace 1, 2 and 3 on laptop and 4-6 on external
 # use workspaces on different displays:
@@ -229,12 +228,10 @@ workspace $ws5 output DisplayPort-0
 workspace $ws6 output DisplayPort-0
 
 # bind program to workspace and focus to them on startup:
-assign [class="kitty"] $ws1
-assign [class="brave"] $ws2
+# assign [class="kitty"] $ws1
 
 # automatic set focus new window if it opens on another workspace than the current:
-for_window [class=kitty] focus
-for_window [class=brave] focus
+# for_window [class=kitty] focus
 
 ##############
 # compositor #
@@ -267,7 +264,7 @@ for_window [class=brave] focus
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
 #exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:alt_caps_toggle'
-exec --no-startup-id ~/.screenlayout/standalone.sh
+exec --no-startup-id ~/.screenlayout/default.sh
 exec --no-startup-id sleep 3 && ~/.fehbg
 exec --no-startup-id xset s 480 dpms 600 600 600
 
@@ -335,10 +332,10 @@ bar {
 ##strip_workspace_name no
 
     colors {
+#  		border 		        bg		            txt		    indicator
         separator          $purple
         background         $darkgrey
         statusline         $white
-#  		border 		        bg		            txt		    indicator
         focused_workspace	$mediumgrey	   	    $grey		$darkgrey	$purple
         active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
         inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
@@ -351,31 +348,6 @@ bar {
 # Transparency needs rgba color codes to be used where the last two letters are the transparency factor see here:
 # https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
 # #08052be6 --> e6=90%
-
-# bar {
-#	font pango: Noto Sans Regular 10
-#	status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#	i3bar_command i3bar --transparency
-#	output HDMI-0
-#	position bottom
-#
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
-#
-#	colors {
-#		separator          $purple
-#		background         $darkbluetrans
-#        	statusline         $white
-#					border		bg		txt		indicator
-#		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
-#		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
-#		inactive_workspace	$darkblue	$darkblue	$lightdblue	$purple
-#		urgent_workspace	$urgentred	$urgentred	$white		$purple
-#	}
-#}
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
     -config ~/.config/rofi/rofidmenu.rasi
