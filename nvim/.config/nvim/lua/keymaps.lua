@@ -46,7 +46,7 @@ vim.keymap.set('n', '<space>st', function()
   vim.cmd.term()
   vim.cmd.wincmd("J")
   vim.cmd.wincmd("A")
-  vim.api.nvim_win_set_height(0, 15)
+  vim.api.nvim_win_set_height(0, 12)
 end, { desc = 'Open terminal on bottom' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- inspired from `h: terminal-input`

@@ -20,12 +20,6 @@ local local_file = function(opts)
   nt.run.run(vim.fn.expand("%"))
 end
 
-local prev = function(opts)
-  opts = opts or { status = "failed" }
-
-  nt.jump.prev(opts)
-end
-
 local next = function(opts)
   opts = opts or { status = "failed" }
 
@@ -36,8 +30,7 @@ M.setup = function()
   vim.keymap.set("n", "<space>tl", nearest, { desc = "Current file" })
   vim.keymap.set("n", "<space>tn", local_file, { desc = "Nearest test" })
   vim.keymap.set("n", "<space>ts", summary, { desc = "Summary" })
-  vim.keymap.set("n", "]t", next, { desc = "Next failed test" })
-  vim.keymap.set("n", "[t", prev, { desc = "Prev failed test" })
+  vim.keymap.set("n", "<space>tf", next, { desc = "Next failed test" })
 end
 
 return M

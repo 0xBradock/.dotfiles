@@ -49,6 +49,7 @@ return {
 
       vim.keymap.set("n", "<space>ep", function()
         require('telescope.builtin').find_files {
+          ---@diagnostic disable-next-line: param-type-mismatch
           cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
         }
       end, { desc = "Telescope search plugins" })
