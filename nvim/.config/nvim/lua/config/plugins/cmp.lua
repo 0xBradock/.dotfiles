@@ -40,15 +40,16 @@ return {
             luasnip.lsp_expand(args.body)
           end,
         },
-        completion = { completeopt = 'menu,menuone,noinsert' }, -- chosen, you will need to read `:help ins-completion`
+        completion = { completeopt = 'menu,preview,menuone,noinsert' }, -- chosen, you will need to read `:help ins-completion`
         mapping = cmp.mapping.preset.insert {
-          ['<C-n>'] = cmp.mapping.select_next_item(),           -- Next
-          ['<C-p>'] = cmp.mapping.select_prev_item(),           -- Previous
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),              -- Scroll the documentation window [b]ack / [f]orward
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),               -- Scroll docs
-          ['<C-y>'] = cmp.mapping.confirm { select = true },    -- Accept ([y]es) the completion.
-          ['<C-Space>'] = cmp.mapping.complete {},              -- Manually trigger a completion from nvim-cmp.
-          ['<C-l>'] = cmp.mapping(function()                    -- <C-l> move to next position
+          ['<C-n>'] = cmp.mapping.select_next_item(),                   -- Next
+          ['<C-p>'] = cmp.mapping.select_prev_item(),                   -- Previous
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),                      -- Scroll the documentation window [b]ack / [f]orward
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),                       -- Scroll docs
+          ['<C-y>'] = cmp.mapping.confirm { select = true },            -- Accept ([y]es) the completion.
+          ['<C-Space>'] = cmp.mapping.complete {},                      -- Manually trigger a completion from nvim-cmp.
+          ['<C-q>'] = cmp.mapping.abort(),
+          ['<C-l>'] = cmp.mapping(function()                            -- <C-l> move to next position
             if luasnip.expand_or_locally_jumpable() then luasnip.expand_or_jump() end
           end, { 'i', 's' }),
           ['<C-h>'] = cmp.mapping(function() -- <C-l> move to previous position
