@@ -28,7 +28,10 @@ return {
     config = function()
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
-      luasnip.config.setup {}
+      luasnip.config.setup({
+        enable_autosnippets = true,
+        update_events = { "TextChanged", "TextChangedI" },
+      })
 
       cmp.setup {
         window = {
@@ -50,7 +53,8 @@ return {
           ['<C-Space>'] = cmp.mapping.complete {},                      -- Manually trigger a completion from nvim-cmp.
           ['<C-q>'] = cmp.mapping.abort(),
           ['<C-l>'] = cmp.mapping(function()                            -- <C-l> move to next position
-            if luasnip.expand_or_locally_jumpable() then luasnip.expand_or_jump() end
+            if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
+            -- if luasnip.expand_or_locally_jumpable() then luasnip.expand_or_jump() end
           end, { 'i', 's' }),
           ['<C-h>'] = cmp.mapping(function() -- <C-l> move to previous position
             if luasnip.locally_jumpable(-1) then luasnip.jump(-1) end
@@ -64,6 +68,12 @@ return {
           { name = 'buffer' },
           { name = 'path' },
         },
+      }
+      luasnip.snippets = {
+        all = {
+          luasnip.parser.parse_snippet({ trig = "ttrr" }, "$1 is ${2|hard,easy,challenging|}")
+          -- luasnip.parser.parse_snippet("expand", "-- Expanded comment"),
+        }
       }
     end,
   }

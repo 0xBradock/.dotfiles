@@ -27,6 +27,10 @@ vim.keymap.set('n', '<M-l>', '<C-W>L', { desc = 'Move window to the right' })
 vim.keymap.set('n', '<M-j>', '<C-W>J', { desc = 'Move window to the bottom' })
 vim.keymap.set('n', '<M-k>', '<C-W>K', { desc = 'Move window to the top' })
 
+-- Buffers
+vim.keymap.set('n', '<space>bo', '<C-W>o', { desc = 'Only oppended split' })
+vim.keymap.set('n', '<space>bc', '<CMD>bd<CR>', { desc = 'Close current buffer' })
+
 vim.keymap.set('n', '<M-,>', '<cmd>vertical resize -4<CR>', { desc = '' })
 vim.keymap.set('n', '<M-.>', '<cmd>vertical resize +4<CR>', { desc = '' })
 
