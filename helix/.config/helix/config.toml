@@ -1,0 +1,20 @@
+theme = "gruvbox_dark_hard"
+
+[editor]
+indent-heuristic = "tree-sitter"
+color-modes = true
+cursorline = true
+mouse = true
+line-number = "relative"
+scrolloff = 8
+end-of-line-diagnostics = "warning"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+[keys.insert.j]
+k = "normal_mode" # Maps `jk` to exit insert mode
