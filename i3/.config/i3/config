@@ -13,7 +13,7 @@ workspace_layout default
 #workspace_layout tabbed
 
 #border indicator on windows:
-new_window pixel 1
+default_border pixel 4
 
 gaps inner 4
 gaps outer 4
@@ -210,7 +210,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 
-# TODO: Check if workspace 1, 2 and 3 on laptop and 4-6 on external
 # use workspaces on different displays:
 workspace $ws1 output eDP
 workspace $ws2 output eDP
@@ -220,7 +219,7 @@ workspace $ws5 output DisplayPort-0
 workspace $ws6 output DisplayPort-0
 
 # bind program to workspace and focus to them on startup:
-# assign [class="kitty"] $ws1
+
 
 # automatic set focus new window if it opens on another workspace than the current:
 # for_window [class=kitty] focus
@@ -279,13 +278,6 @@ for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [window_role="About"] floating enable
 
-# set border of floating window
-for_window [class="urxvt"] border pixel 2
-
-# set size of floating window
-#for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
-#for_window [class=".*"] resize set 640 480 #to change size of all floating windows 
-
 # Define colors variables:
 set $darkbluetrans	#08052be6
 set $darkblue		#08052b
@@ -300,46 +292,30 @@ set $mediumgrey		#8b8b8b
 set $yellowbrown	#e1b700
 
 # define colors for windows:
-#class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
-client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
-client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
-client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
+#class		            	border	    	bground		text		indicator       child_border
+client.focused		    	$yellowbrown	$darkblue	$white		$mediumgrey 	$mediumgrey
+client.unfocused	    	$darkblue   	$darkblue	$grey		$darkgrey   	$darkgrey
+client.focused_inactive		$darkblue   	$darkblue	$grey		$black	    	$black
+client.urgent		    	$urgentred  	$urgentred	$white		$yellowbrown   	$yellowbrown
 
 # Start i3bar to display a workspace bar
 bar {
     font pango: Noto Sans Regular 12
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     position bottom
-#	    	i3bar_command i3bar --transparency
-# it could be that you have no primary display set: set one (xrandr --output <output> --primary)
-# reference: https://i3wm.org/docs/userguide.html#_tray_output
-#tray_output primary
     tray_padding 0
-
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
     strip_workspace_numbers yes
-##strip_workspace_name no
-
     colors {
-#  		border 		        bg		            txt		    indicator
-        separator          $purple
-        background         $darkgrey
-        statusline         $white
-        focused_workspace	$mediumgrey	   	    $grey		$darkgrey	$purple
-        active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-        inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-        urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+#  	                    	border      bg          txt         indicator
+        separator           $purple
+        background			$darkgrey
+        statusline          $white
+        focused_workspace	$mediumgrey $grey		$darkgrey	$purple
+        active_workspace	$lightblue  $mediumgrey	$darkgrey	$purple
+        inactive_workspace	$darkgrey   $darkgrey	$grey		$purple
+        urgent_workspace	$urgentred	$urgentred	$white		$purple
     }
 }
-
-# you can add different bars for multidisplay setups on each display:
-# set output HDMI-0 to the display you want the bar, --transparency can be set.
-# Transparency needs rgba color codes to be used where the last two letters are the transparency factor see here:
-# https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-# #08052be6 --> e6=90%
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
     -config ~/.config/rofi/rofidmenu.rasi
