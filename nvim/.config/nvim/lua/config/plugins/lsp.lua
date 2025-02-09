@@ -56,6 +56,7 @@ return {
         }
       })
 
+      lsp.zls.setup({ capabilities = capabilities })
       lsp.html.setup({ capabilities = capabilities })
       lsp.docker_compose_language_service.setup({ capabilities = capabilities })
       lsp.dockerls.setup({ capabilities = capabilities })
