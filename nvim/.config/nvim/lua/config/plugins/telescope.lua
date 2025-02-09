@@ -26,6 +26,7 @@ return {
       local builtin = require('telescope.builtin')
 
       vim.keymap.set('n', '<space>ff', builtin.find_files, { desc = 'Find files' })
+      vim.keymap.set('n', '<space>fs', builtin.current_buffer_fuzzy_find, { desc = 'Search in buffer' })
       vim.keymap.set('n', '<space>fd', builtin.diagnostics, { desc = 'List diagnostics' })
       vim.keymap.set('n', '<space><space>', builtin.buffers, { desc = 'List buffers' })
       vim.keymap.set('n', '<space>fb', builtin.buffers, { desc = 'List buffers' })
