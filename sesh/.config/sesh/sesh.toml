@@ -1,0 +1,2 @@
+[default_session]
+startup_script = "tmux split-window -v -l 10; tmux select-pane -t :.+"
