@@ -11,6 +11,8 @@ opt.shiftwidth = 4
 opt.number = true
 opt.relativenumber = true
 
+vim.opt.swapfile = false
+
 -- Space as tabs
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
