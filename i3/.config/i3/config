@@ -13,10 +13,10 @@ workspace_layout default
 #workspace_layout tabbed
 
 #border indicator on windows:
-default_border pixel 4
+default_border pixel 1
 
 gaps inner 4
-gaps outer 4
+gaps outer 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -88,10 +88,6 @@ bindsym $mod+q kill
 # exit-menu
 bindsym $mod+Shift+e exec --no-startup-id ~/.config/i3/scripts/powermenu
 
-# Lock the system
-# TODO: I removed this to be able to shift focus with $mod+l (right)
-# bindsym $mod+l exec --no-startup-id ~/.config/i3/scripts/blur-lock
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -111,45 +107,14 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# TODO: Check if it is realy required to leave those
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# TODO: Check if it is realy required to leave those
-# split in horizontal orientation
-# bindsym $mod+h split h
-# split in vertical orientation
-# bindsym $mod+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# TODO: Check if it is realy required to leave those
-# change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-# bindsym $mod+g layout tabbed
-# bindsym $mod+e layout toggle split
-
-# TODO: Check if it is realy required to leave those
-# toggle tiling / floating
-# bindsym $mod+Shift+space floating toggle
-
-# TODO: Check if it is realy required to leave those
-# change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
-
-# TODO: Check if it is realy required to leave those
-# focus the parent container
-# bindsym $mod+a focus parent
 
 # open new empty workspace
 bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/empty_workspace
@@ -181,10 +146,6 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 # Above line will also work for pausing
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-
-# TODO: Check if it is realy required to leave those
-# Redirect sound to headphones
-# bindsym $mod+p exec --no-startup-id /usr/local/bin/switch-audio-port
 
 ## App shortcuts
 bindsym $mod+b exec --no-startup-id /usr/bin/brave
@@ -220,9 +181,7 @@ workspace $ws6 output DisplayPort-0
 
 # bind program to workspace and focus to them on startup:
 
-
 # automatic set focus new window if it opens on another workspace than the current:
-# for_window [class=kitty] focus
 
 ##############
 # compositor #
@@ -258,6 +217,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id ~/.screenlayout/default.sh
 exec --no-startup-id sleep 3 && ~/.fehbg
 exec --no-startup-id xset s 480 dpms 600 600 600
+exec_always --no-startup-id $(which polybar) -q
 
 # FIX: update dunst
 # Desktop notifications
@@ -298,25 +258,25 @@ client.unfocused	    	$darkblue   	$darkblue	$grey		$darkgrey   	$darkgrey
 client.focused_inactive		$darkblue   	$darkblue	$grey		$black	    	$black
 client.urgent		    	$urgentred  	$urgentred	$white		$yellowbrown   	$yellowbrown
 
-# Start i3bar to display a workspace bar
-bar {
-    font pango: Noto Sans Regular 12
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    position bottom
-    tray_padding 0
-    strip_workspace_numbers yes
-    colors {
-#  	                    	border      bg          txt         indicator
-        separator           $purple
-        background			$darkgrey
-        statusline          $white
-        focused_workspace	$mediumgrey $grey		$darkgrey	$purple
-        active_workspace	$lightblue  $mediumgrey	$darkgrey	$purple
-        inactive_workspace	$darkgrey   $darkgrey	$grey		$purple
-        urgent_workspace	$urgentred	$urgentred	$white		$purple
-    }
-}
-
+# # Start i3bar to display a workspace bar
+# bar {
+#     font pango: Noto Sans Regular 12
+#     status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#     position bottom
+#     tray_padding 0
+#     strip_workspace_numbers yes
+#     colors {
+# #  	                    	border      bg          txt         indicator
+#         separator           $purple
+#         background			$darkgrey
+#         statusline          $white
+#         focused_workspace	$mediumgrey $grey		$darkgrey	$purple
+#         active_workspace	$lightblue  $mediumgrey	$darkgrey	$purple
+#         inactive_workspace	$darkgrey   $darkgrey	$grey		$purple
+#         urgent_workspace	$urgentred	$urgentred	$white		$purple
+#     }
+# }
+#
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun \
     -config ~/.config/rofi/rofidmenu.rasi
 
