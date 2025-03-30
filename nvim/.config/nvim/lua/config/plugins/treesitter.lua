@@ -6,14 +6,17 @@ return {
       require 'nvim-treesitter.configs'.setup {
         ensure_installed = {
           "c",
+          "php",
           "go",
+          "rust",
           "typescript",
           "javascript",
           "lua",
           "vimdoc",
           "query",
           "markdown",
-          "markdown_inline"
+          "markdown_inline",
+          "zig"
         },
         sync_install = false,
         auto_install = false,
