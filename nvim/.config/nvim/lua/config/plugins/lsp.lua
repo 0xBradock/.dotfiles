@@ -50,12 +50,24 @@ return {
         settings = {
           ['rust-analyzer'] = {
             diagnostics = {
-              enable = false,
+              enable = false
             }
           }
         }
       })
 
+      lsp.eslint.setup({
+        capabilities = capabilities,
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+      })
+
+      lsp.phpactor.setup({ capabilities = capabilities })
+      lsp.intelephense.setup({ capabilities = capabilities })
       lsp.zls.setup({ capabilities = capabilities })
       lsp.html.setup({ capabilities = capabilities })
       lsp.docker_compose_language_service.setup({ capabilities = capabilities })
