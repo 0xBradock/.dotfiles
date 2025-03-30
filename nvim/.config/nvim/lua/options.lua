@@ -48,6 +48,10 @@ vim.opt.updatetime = 200     -- debounce with 200ms
 vim.opt.inccommand = 'split' -- preview substitution
 vim.opt.cursorline = true    -- show line cursor is in
 
+-- Splits
+vim.opt.splitright = true -- Split vertical to the right
+vim.opt.splitbelow = true -- Split horizontal to the bottom
+
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
