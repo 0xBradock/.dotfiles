@@ -3,6 +3,23 @@ local opt = vim.opt
 -- Clipboard
 opt.clipboard = "unnamedplus"
 
+vim.diagnostic.config({
+    float = {
+        border = 'rounded',
+        header = 'TTT',
+        source = 'if_many',
+    },
+    severity_sort = true,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '󰅚 ',
+            [vim.diagnostic.severity.WARN] = '󰀪 ',
+            [vim.diagnostic.severity.INFO] = '󰋽 ',
+            [vim.diagnostic.severity.HINT] = '󰌶 ',
+        },
+    },
+})
+
 -- Indentation
 opt.shiftwidth = 4
 opt.number = true
