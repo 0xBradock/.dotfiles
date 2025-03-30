@@ -13,7 +13,7 @@ return {
       version = '^5',
       lazy = false,
     },
-    -- "nvim-neotest/neotest-jest",
+    "nvim-neotest/neotest-jest",
     {
       "fredrikaverpil/neotest-golang",
       branch = "main",
