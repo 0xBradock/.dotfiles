@@ -63,14 +63,15 @@ vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w><C-k>', { desc = 'Move up from ter
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })
 
 -- Quickfix
-vim.keymap.set('n', '<M-n>', '<cmd>cnext<CR>zz', { desc = 'Next on Quickfixlist' })
-vim.keymap.set('n', '<M-p>', '<cmd>cprev<CR>zz', { desc = 'Previous on Quickfixlist' })
+-- vim.keymap.set('n', '<M-n>', '<cmd>cnext<CR>zz', { desc = 'Next on Quickfixlist' })
+-- vim.keymap.set('n', '<M-p>', '<cmd>cprev<CR>zz', { desc = 'Previous on Quickfixlist' })
 vim.keymap.set('n', '<M-q>', '<cmd>cclose<CR>', { desc = 'Close Quickfixlist' })
 
 -- LSP
 vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, { desc = 'Rename symbol' })
 vim.keymap.set('n', '<space>la', vim.lsp.buf.code_action, { desc = 'Code Action' })
 vim.keymap.set('n', '<space>lq', vim.diagnostic.setqflist, { desc = 'Diagnostics to quickfixlist' })
+
 -- This adds a border to the hover window, otherwise is difficult to distinguish from the source code.
 local _border = "rounded"
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
