@@ -3,13 +3,12 @@ local opt = vim.opt
 -- Clipboard
 opt.clipboard = "unnamedplus"
 
+-- Diagnostics
+-- https://gpanders.com/blog/whats-new-in-neovim-0-11/
 vim.diagnostic.config({
-    float = {
-        border = 'rounded',
-        header = 'TTT',
-        source = 'if_many',
-    },
-    severity_sort = true,
+    -- TODO: I temporarily disabled virtual_text because it doubles with virtual_lines.
+    -- virtual_text = { current_line = true },
+    virtual_lines = { current_line = true },
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
