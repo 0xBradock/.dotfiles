@@ -7,7 +7,7 @@ return {
       { 'williamboman/mason-lspconfig.nvim' },
       { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
       { 'j-hui/fidget.nvim',                        opts = {} }, -- status updates for Lsp
-      { 'hrsh7th/cmp-nvim-lsp' },
+      -- { 'hrsh7th/cmp-nvim-lsp' },
 
       -- `vim` globals
       {
@@ -24,8 +24,8 @@ return {
       -- NOTE: There's an autocomand `LspAttach` on `./lua/autocomands.lua`
       -- It formats on save
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      local base_capabilities = vim.lsp.protocol.make_client_capabilities()
+      local capabilities = require('blink.cmp').get_lsp_capabilities(base_capabilities)
 
       local lsp = require('lspconfig')
       lsp.lua_ls.setup({
