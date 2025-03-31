@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if not client then return end
 
-    if client.supports_method('textDocument/formatting') then
+    if client:supports_method("textDocument/formatting") then
       -- Format the current buffer on save
       vim.api.nvim_create_autocmd('BufWritePre', {
         buffer = args.buf,
@@ -30,16 +30,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end,
       })
     end
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*.go",
-  callback = function()
-    vim.opt_local.expandtab = true
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-    vim.opt_local.softtabstop = 4
   end,
 })
 
