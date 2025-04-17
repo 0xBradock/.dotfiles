@@ -66,8 +66,16 @@ return {
         end,
       })
 
-      lsp.phpactor.setup({ capabilities = capabilities })
-      lsp.intelephense.setup({ capabilities = capabilities })
+      lsp.ruff.setup({
+        init_options = {
+          settings = {
+            -- Ruff language server settings go here
+          }
+        },
+        capabilities = capabilities
+      })
+
+      lsp.pylsp.setup({ capabilities = capabilities })
       lsp.zls.setup({ capabilities = capabilities })
       lsp.html.setup({ capabilities = capabilities })
       lsp.docker_compose_language_service.setup({ capabilities = capabilities })
@@ -78,6 +86,9 @@ return {
       lsp.ts_ls.setup({ capabilities = capabilities })
       lsp.yamlls.setup({ capabilities = capabilities })
       lsp.jsonls.setup({ capabilities = capabilities })
+
+      lsp.phpactor.setup({ capabilities = capabilities })
+      lsp.intelephense.setup({ capabilities = capabilities })
     end,
   }
 }

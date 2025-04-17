@@ -14,6 +14,7 @@ return {
           "lua",
           "vimdoc",
           "query",
+          "python",
           "markdown",
           "markdown_inline",
           "zig"
