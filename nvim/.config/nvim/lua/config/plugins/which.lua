@@ -13,7 +13,7 @@ return {
       wk.add({
         { '<leader>e', group = 'Edit (nvim)' },
         { '<leader>f', group = 'Telescope' },
-        { '<leader>g', group = 'GoTo' },
+        { '<leader>h', group = 'hunks' },
         { '<leader>l', group = 'Lsp' },
         { '<leader>o', group = 'Oil' },
         { '<leader>b', group = 'Buffers' },
