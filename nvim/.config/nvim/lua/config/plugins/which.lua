@@ -16,6 +16,7 @@ return {
         { '<leader>h', group = 'hunks' },
         { '<leader>l', group = 'Lsp' },
         { '<leader>o', group = 'Oil' },
+        { '<leader>g', group = 'Git' },
         { '<leader>b', group = 'Buffers' },
         { '<leader>t', group = 'Test' },
       })
