@@ -85,8 +85,9 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   }
 )
 
--- Test
-vim.keymap.set('n', '<space>tl', '<cmd>require("neotest").run.run(vim.fn.expand("%"))<CR>', { desc = 'Current file' })
+-- -- Test
+-- vim.keymap.set('n', '<space>tl', '<cmd>require("neotest").run.run(vim.fn.expand("%"))<CR>', { desc = 'Current file' })
+-- vim.keymap.set('n', '<space>tw', '<cmd>require("neotest").watch.toggle()<CR>', { desc = 'Watch tests' })
 
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Oil" })
