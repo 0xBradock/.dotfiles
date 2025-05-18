@@ -15,6 +15,14 @@ return {
       local tl = require('telescope')
 
       tl.setup {
+        defaults = {
+          file_ignore_patterns = { ".git/", "^node_modules/" },
+          layout_config = {
+            width = 0.9,
+            height = 0.9,
+            preview_width = 0.5,
+          },
+        },
         pickers = { find_files = {
           -- theme = "ivy"
         } },
