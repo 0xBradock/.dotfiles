@@ -24,6 +24,9 @@ return {
           "andythigpen/nvim-coverage",
         }
       },
+      {
+        "nvim-neotest/neotest-python",
+      }
     },
     config = function()
       local go_opts = {
@@ -40,6 +43,7 @@ return {
       require('neotest').setup({
         adapters = {
           require('neotest-golang')(go_opts),
+          require("neotest-python"),
         },
       })
 

@@ -15,21 +15,28 @@ return {
     -- Show signature??
     keymap = {
       preset = 'default',
-
       -- Show completion
-      ['<C-s>'] = { 'show', 'show_documentation', 'hide_documentation' },
-
-      -- Snippet jump
+      -- ['<C-s>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      -- -- Snippet jump
       ['<C-l>'] = { 'snippet_forward', 'fallback' },
       ['<C-h>'] = { 'snippet_backward', 'fallback' },
     },
-    appearance = { nerd_font_variant = 'normal' }, -- 'mono' or 'normal'
+    appearance = { nerd_font_variant = 'mono' }, -- 'mono' or 'normal'
     completion = {
       documentation = { auto_show = true, treesitter_highlighting = true, window = { border = 'single' } },
-      menu = { border = 'single' }
+      menu = {
+        border = 'single',
+
+        draw = {
+          columns = {
+            { "label",     "label_description", gap = 1 },
+            { "kind_icon", "kind" }
+          },
+        },
+      },
     },
     sources = { default = { 'lsp', 'snippets', 'path', 'buffer' } },
-    fuzzy = { implementation = "rust" }
+    fuzzy = { implementation = "rust", use_frecency = true }
   },
   opts_extend = { "sources.default" }
 }
