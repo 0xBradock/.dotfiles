@@ -6,7 +6,7 @@ color-modes = true
 cursorline = true
 mouse = true
 line-number = "relative"
-scrolloff = 8
+scrolloff = 10
 end-of-line-diagnostics = "warning"
 
 [editor.cursor-shape]
