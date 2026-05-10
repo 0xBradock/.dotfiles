@@ -1,7 +1,7 @@
 require('keymaps')
 require("config.lazy")
 require('options')
-require('autocomands')
+require('autocommands')
 
--- vim.cmd [[colorscheme ayu-mirage]]
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme ayu-mirage]]
+-- vim.cmd [[colorscheme gruvbox]]

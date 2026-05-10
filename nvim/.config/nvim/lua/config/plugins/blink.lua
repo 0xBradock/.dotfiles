@@ -36,7 +36,7 @@ return {
       },
     },
     sources = { default = { 'lsp', 'snippets', 'path', 'buffer' } },
-    fuzzy = { implementation = "rust", use_frecency = true }
+    -- fuzzy = { implementation = "rust", use_frecency = true }
   },
   opts_extend = { "sources.default" }
 }

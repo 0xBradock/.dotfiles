@@ -9,7 +9,6 @@ return {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest-plenary",
-      "folke/lazydev.nvim",
       {
         'mrcjkb/rustaceanvim',
         version = '^5',
@@ -34,7 +33,6 @@ return {
         colorize_test_output = true,
         go_test_args = {
           "-v",
-          "-race",
           "-count=1",
           "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
         },

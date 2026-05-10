@@ -20,7 +20,6 @@ vim.diagnostic.config({
 })
 
 -- Indentation
-opt.shiftwidth = 4
 opt.number = true
 opt.relativenumber = true
 
@@ -52,5 +51,6 @@ vim.opt.splitright = true -- Split vertical to the right
 vim.opt.splitbelow = true -- Split horizontal to the bottom
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.opt.termguicolors = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

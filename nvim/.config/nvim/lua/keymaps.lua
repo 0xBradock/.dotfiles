@@ -7,7 +7,6 @@ vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set('n', '<space>w', '<cmd>w<CR>', { desc = 'Easy save' })
 vim.keymap.set('i', 'jk', '<ESC><cmd>w<CR>', { desc = 'Easy save' })
 
-
 -- Keymaps
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Remove highlight' })
 -- Hard mode
@@ -28,11 +27,7 @@ vim.keymap.set('n', '<M-j>', '<C-W>J', { desc = 'Move window to the bottom' })
 vim.keymap.set('n', '<M-k>', '<C-W>K', { desc = 'Move window to the top' })
 
 -- Buffers
-vim.keymap.set('n', '<space>bo', '<C-W>o', { desc = 'Only oppended split' })
 vim.keymap.set('n', '<space>bc', '<CMD>bd<CR>', { desc = 'Close current buffer' })
-
-vim.keymap.set('n', '<M-,>', '<cmd>vertical resize -4<CR>', { desc = '' })
-vim.keymap.set('n', '<M-.>', '<cmd>vertical resize +4<CR>', { desc = '' })
 
 -- Prime moves: https://www.youtube.com/watch?v=w7i4amO_zaE
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center cursor after page down' })
@@ -50,7 +45,7 @@ vim.keymap.set('n', '<space>st', function()
   vim.cmd.term()
   vim.cmd.wincmd("J")
   vim.cmd.wincmd("A")
-  vim.api.nvim_win_set_height(0, 12)
+  vim.api.nvim_win_set_height(0, 16)
 end, { desc = 'Open terminal on bottom' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- inspired from `h: terminal-input`
@@ -63,14 +58,12 @@ vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w><C-k>', { desc = 'Move up from ter
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })
 
 -- Quickfix
--- vim.keymap.set('n', '<M-n>', '<cmd>cnext<CR>zz', { desc = 'Next on Quickfixlist' })
--- vim.keymap.set('n', '<M-p>', '<cmd>cprev<CR>zz', { desc = 'Previous on Quickfixlist' })
 vim.keymap.set('n', '<M-q>', '<cmd>cclose<CR>', { desc = 'Close Quickfixlist' })
 
 -- LSP
-vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, { desc = 'Rename symbol' })
-vim.keymap.set('n', '<space>la', vim.lsp.buf.code_action, { desc = 'Code Action' })
-vim.keymap.set('n', '<space>lq', vim.diagnostic.setqflist, { desc = 'Diagnostics to quickfixlist' })
+-- vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, { desc = 'Rename symbol' })
+-- vim.keymap.set('n', '<space>la', vim.lsp.buf.code_action, { desc = 'Code Action' })
+-- vim.keymap.set('n', '<space>lq', vim.diagnostic.setqflist, { desc = 'Diagnostics to quickfixlist' })
 
 -- This adds a border to the hover window, otherwise is difficult to distinguish from the source code.
 local _border = "rounded"

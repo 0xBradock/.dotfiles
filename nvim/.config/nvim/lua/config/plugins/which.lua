@@ -14,7 +14,7 @@ return {
         { '<leader>e', group = 'Edit (nvim)' },
         { '<leader>f', group = 'Telescope' },
         { '<leader>h', group = 'hunks' },
-        { '<leader>l', group = 'Lsp' },
+        -- { '<leader>l', group = 'Lsp' },
         { '<leader>o', group = 'Oil' },
         { '<leader>g', group = 'Git' },
         { '<leader>b', group = 'Buffers' },

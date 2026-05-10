@@ -27,10 +27,8 @@ local next = function(opts)
 end
 
 M.setup = function()
-  vim.keymap.set("n", "<space>tl", nearest, { desc = "Current file" })
-  vim.keymap.set("n", "<space>tn", local_file, { desc = "Nearest test" })
-  vim.keymap.set("n", "<space>ts", summary, { desc = "Summary" })
-  vim.keymap.set("n", "<space>tf", next, { desc = "Next failed test" })
+  -- Keymaps are now defined in lua/config/plugins/tests.lua
+  -- This function is kept for backward compatibility
 end
 
 return M

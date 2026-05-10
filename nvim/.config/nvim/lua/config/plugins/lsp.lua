@@ -21,18 +21,18 @@ return {
       },
     },
     config = function()
-      -- NOTE: There's an autocomand `LspAttach` on `./lua/autocomands.lua`
+      -- NOTE: There's an autocommand `LspAttach` on `./lua/autocommands.lua`
       -- It formats on save
 
       local base_capabilities = vim.lsp.protocol.make_client_capabilities()
       local capabilities = require('blink.cmp').get_lsp_capabilities(base_capabilities)
 
-      local lsp = require('lspconfig')
-      lsp.lua_ls.setup({
+      vim.lsp.config('lua_ls', {
         capabilities = capabilities,
       })
+      vim.lsp.enable('lua_ls')
 
-      lsp.gopls.setup({
+      vim.lsp.config('gopls', {
         capabilities = capabilities,
         settings = {
           gopls = {
@@ -44,52 +44,49 @@ return {
           },
         },
       })
+      vim.lsp.enable('gopls')
 
-      lsp.rust_analyzer.setup({
+      -- rust_analyzer is handled by rustaceanvim
+
+      vim.lsp.config('ruff', {
         capabilities = capabilities,
-        settings = {
-          ['rust-analyzer'] = {
-            diagnostics = {
-              enable = false
-            }
-          }
-        }
-      })
-
-      lsp.eslint.setup({
-        capabilities = capabilities,
-        on_attach = function(_, bufnr)
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "EslintFixAll",
-          })
-        end,
-      })
-
-      lsp.ruff.setup({
         init_options = {
           settings = {
-            -- Ruff language server settings go here
             args = {},
-          }
+          },
         },
-        capabilities = capabilities
       })
+      vim.lsp.enable('ruff')
 
-      lsp.pylsp.setup({ capabilities = capabilities })
-      lsp.zls.setup({ capabilities = capabilities })
-      lsp.html.setup({ capabilities = capabilities })
-      lsp.docker_compose_language_service.setup({ capabilities = capabilities })
-      lsp.dockerls.setup({ capabilities = capabilities })
-      lsp.cssls.setup({ capabilities = capabilities })
-      lsp.tailwindcss.setup({ capabilities = capabilities })
-      lsp.marksman.setup({ capabilities = capabilities })
-      lsp.ts_ls.setup({ capabilities = capabilities })
-      lsp.yamlls.setup({ capabilities = capabilities })
-      lsp.jsonls.setup({ capabilities = capabilities })
+      vim.lsp.config('zls', { capabilities = capabilities })
+      vim.lsp.enable('zls')
 
-      lsp.phpactor.setup({ capabilities = capabilities })
-      lsp.intelephense.setup({ capabilities = capabilities })
+      vim.lsp.config('html', { capabilities = capabilities })
+      vim.lsp.enable('html')
+
+      vim.lsp.config('docker_compose_language_service', { capabilities = capabilities })
+      vim.lsp.enable('docker_compose_language_service')
+
+      vim.lsp.config('dockerls', { capabilities = capabilities })
+      vim.lsp.enable('dockerls')
+
+      vim.lsp.config('cssls', { capabilities = capabilities })
+      vim.lsp.enable('cssls')
+
+      vim.lsp.config('tailwindcss', { capabilities = capabilities })
+      vim.lsp.enable('tailwindcss')
+
+      vim.lsp.config('marksman', { capabilities = capabilities })
+      vim.lsp.enable('marksman')
+
+      vim.lsp.config('ts_ls', { capabilities = capabilities })
+      vim.lsp.enable('ts_ls')
+
+      vim.lsp.config('yamlls', { capabilities = capabilities })
+      vim.lsp.enable('yamlls')
+
+      vim.lsp.config('jsonls', { capabilities = capabilities })
+      vim.lsp.enable('jsonls')
     end,
   }
 }

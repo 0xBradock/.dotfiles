@@ -1,5 +1,7 @@
 {
+    "diagnostics.globals": ["vim"],
     "diagnostics.disable": [
         "missing-fields"
-    ]
+    ],
+    "workspace.library": ["$VIMRUNTIME/lua"]
 }
