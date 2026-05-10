@@ -98,8 +98,11 @@ bindsym $mod+Shift+r restart
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 #bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 # Backlight setting using dunst osc
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
+# bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
+# bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 10%+ && ~/.config/i3/scripts/bright_notify.sh
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%- && ~/.config/i3/scripts/bright_notify.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -224,12 +227,14 @@ exec --no-startup-id sleep 3 && xmodmap ~/.Xmodmap
 exec --no-startup-id ~/.screenlayout/default.sh
 exec --no-startup-id sleep 3 && ~/.fehbg
 exec --no-startup-id xset s 480 dpms 600 600 600
+exec polybar-msg cmd quit
 exec_always --no-startup-id $(which polybar) -q
 
 # FIX: update dunst
 # Desktop notifications
 # dunst config used ~/.config/dunst/dunstrc
 exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
+exec --no-startup-id ~/.config/i3/scripts/low_battery_notify.sh
 exec --no-startup-id sleep 2 && kitty
 
 # FIX: ~/.screenlayout contains `default` that detects at startup the monitor config. Create trigger to change while running
