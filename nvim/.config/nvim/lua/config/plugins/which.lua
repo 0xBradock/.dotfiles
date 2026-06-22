@@ -13,12 +13,11 @@ return {
       wk.add({
         { '<leader>e', group = 'Edit (nvim)' },
         { '<leader>f', group = 'Telescope' },
-        { '<leader>h', group = 'hunks' },
-        -- { '<leader>l', group = 'Lsp' },
+        { '<leader>h', group = 'Hunks' },
         { '<leader>o', group = 'Oil' },
-        { '<leader>g', group = 'Git' },
         { '<leader>b', group = 'Buffers' },
         { '<leader>t', group = 'Test' },
+        { '<leader>d', group = 'Debug' },
       })
     end
   }

@@ -33,41 +33,6 @@ vim.api.nvim_create_autocmd({ 'CursorMoved' }, {
   end)()
 })
 
--- Format on save for the current
-local lsp_format_on_save_group = vim.api.nvim_create_augroup('custom-lsp-format-on-save', { clear = true })
-
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('custom-lsp-attach', { clear = true }),
-  callback = function(args)
-    if vim.bo[args.buf].filetype == 'go' then
-      return
-    end
-
-    local client_id = args.data and args.data.client_id
-    if not client_id then
-      return
-    end
-
-    local client = vim.lsp.get_client_by_id(client_id)
-    if not client then return end
-
-    if client:supports_method('textDocument/formatting') then
-      -- Format the current buffer on save
-      vim.api.nvim_clear_autocmds({ group = lsp_format_on_save_group, buffer = args.buf })
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = lsp_format_on_save_group,
-        buffer = args.buf,
-        callback = function()
-          local ok, err = pcall(vim.lsp.buf.format, { bufnr = args.buf, id = client.id })
-          if not ok then
-            vim.notify('Format failed: ' .. err, vim.log.levels.WARN)
-          end
-        end,
-      })
-    end
-  end,
-})
-
 -- From https://github.com/golang/tools/blob/master/gopls/doc/vim.md
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = vim.api.nvim_create_augroup('custom-go-organize-imports', { clear = true }),

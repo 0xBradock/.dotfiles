@@ -54,29 +54,8 @@ vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w><C-l>', { desc = 'Move to right fr
 vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w><C-j>', { desc = 'Move down from terminal' })
 vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w><C-k>', { desc = 'Move up from terminal' })
 
--- Goto
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })
-
 -- Quickfix
 vim.keymap.set('n', '<M-q>', '<cmd>cclose<CR>', { desc = 'Close Quickfixlist' })
-
--- LSP
--- vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, { desc = 'Rename symbol' })
--- vim.keymap.set('n', '<space>la', vim.lsp.buf.code_action, { desc = 'Code Action' })
--- vim.keymap.set('n', '<space>lq', vim.diagnostic.setqflist, { desc = 'Diagnostics to quickfixlist' })
-
--- This adds a border to the hover window, otherwise is difficult to distinguish from the source code.
-local _border = "rounded"
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = _border,
-  }
-)
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = _border,
-  }
-)
 
 -- -- Test
 -- vim.keymap.set('n', '<space>tl', '<cmd>require("neotest").run.run(vim.fn.expand("%"))<CR>', { desc = 'Current file' })

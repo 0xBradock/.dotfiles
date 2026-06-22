@@ -42,14 +42,6 @@ return {
       vim.keymap.set('n', '<space>fh', builtin.help_tags, { desc = 'Search help' })
       vim.keymap.set('n', '<space>fk', builtin.keymaps, { desc = 'Search keymaps' })
 
-      -- GoTos
-      vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = 'Goto definition' })
-      vim.keymap.set('n', 'gI', builtin.lsp_implementations, { desc = 'Goto Implementations' })
-      vim.keymap.set('n', 'gT', builtin.lsp_type_definitions, { desc = 'Goto Type definitions' })
-      vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Goto references' })
-      vim.keymap.set('n', 'gs', builtin.lsp_document_symbols, { desc = 'List symbols' })
-      vim.keymap.set('n', 'gS', builtin.lsp_dynamic_workspace_symbols, { desc = 'List Workspace symbols' })
-
       vim.keymap.set('n', '<space>en', function()
         local opts = require('telescope.themes').get_ivy({
           cwd = vim.fn.stdpath("config")

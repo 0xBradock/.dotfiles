@@ -1,4 +1,3 @@
--- All libraries and configurations pertaining test for all programming languages
 return {
   {
     "nvim-neotest/neotest",
@@ -6,15 +5,7 @@ return {
     dependencies = {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
-      "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "nvim-neotest/neotest-plenary",
-      {
-        'mrcjkb/rustaceanvim',
-        version = '^5',
-        lazy = false,
-      },
-      "nvim-neotest/neotest-jest",
       {
         "fredrikaverpil/neotest-golang",
         branch = "main",
@@ -45,11 +36,8 @@ return {
         },
       })
 
-      require "config.neotest.keymaps".setup() -- required to retrive keymaps
+      require "config.neotest.keymaps".setup()
     end,
-    -- local showkcov = function ()
-    --   require('coverage').show()
-    -- end,
     keys = {
       { "<leader>tw", function() require("neotest").watch.watch() end,                                    desc = "[t]est [w]atch" },
       { "<leader>ta", function() require("neotest").run.attach() end,                                     desc = "[t]est [a]ttach" },
@@ -83,7 +71,6 @@ return {
         end,
         desc = "[t]est [c]overage"
       },
-
     }
   }
 }
